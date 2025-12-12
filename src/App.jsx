@@ -12,7 +12,6 @@ const App = () => {
       const response = await fetch(API);
       const dataAccess = await response.json();
       const retrievedGuests = dataAccess.data
-      console.log(retrievedGuests);
       setGuests(retrievedGuests);
     }
     getGuests()
