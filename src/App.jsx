@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import GuestList from "./GuestList";
+import GuestDetails from "./GuestDetails"
 import { useGuest } from "./GuestContext";
 
 const App = () => {
-  const { setGuests } = useGuest();
+  const { setGuests, guestDetails } = useGuest();
 
   useEffect(() => {
     const getGuests = async () => {
@@ -20,7 +21,7 @@ const App = () => {
   return (
     <>
       <h1>Guests for the Party</h1>
-      <GuestList />
+      {guestDetails.name ? <GuestDetails /> : <GuestList />}
     </>
   );
 }
