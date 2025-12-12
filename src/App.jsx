@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import GuestItem from "./GuestItem";
+import { useEffect } from "react";
+import GuestList from "./GuestList";
+import { useGuest } from "./GuestContext";
 
 const App = () => {
-  const [guests, setGuests] = useState([]);
+  const { setGuests } = useGuest();
 
   useEffect(() => {
     const getGuests = async () => {
@@ -10,6 +11,7 @@ const App = () => {
       const response = await fetch(API);
       const dataAccess = await response.json();
       const retrievedGuests = dataAccess.data
+      console.log(retrievedGuests);
       setGuests(retrievedGuests);
     }
     getGuests()
@@ -18,9 +20,7 @@ const App = () => {
   return (
     <>
       <h1>Guests for the Party</h1>
-      <ul>
-        {guests.map((guest) => <GuestItem key={guest.id} guest={guest} />)}
-      </ul>
+      <GuestList />
     </>
   );
 }
