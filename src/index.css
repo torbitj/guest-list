@@ -1,4 +1,5 @@
 body {
+  background-color: lightgray;
   display: grid;
   grid-template-columns: 2fr 6fr 2fr;
   grid-template-areas: 
@@ -6,8 +7,13 @@ body {
 }
 
 div {
+  background-color: antiquewhite;
+  padding: 1em;
   grid-area: div;
   display: grid;
+  border: thin solid;
+  border-radius: 2em;
+  box-shadow: 5px 5px 10px gray;
 }
 
 h1 {
